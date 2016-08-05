@@ -1,0 +1,18 @@
+{
+  "name": "tripsorter",
+  "version": "1.0.0",
+  "description": "Sort trips by distance or fare.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Valay Desai",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.3",
+    "angular-i18n": "^1.5.3",
+    "bootstrap": "^3.3.6",
+    "http-server": "^0.9.0",
+    "jquery": "^2.2.2"
+  }
+}

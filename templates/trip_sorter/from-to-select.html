@@ -1,0 +1,21 @@
+<div class="col-xs-12 col-xl-12 v-padding-xxxs">	
+	<select class="left-margin-xxs v-padding-xxxs h-margin-xxs h-padding-xxs font-sm" ng-model="selectedDeparture" ng-options="d.name for d in aDepartures" ng-change="fnGetArrivals(d.name)">
+		<option value="" label="From">From</option>    
+	</select>
+	<select class="left-margin-xxs v-padding-xxxs h-margin-xxs h-padding-xxs font-sm" ng-model="selectedArrival" ng-disabled="!selectedDeparture" ng-options="a.name for a in aArrivals" ng-change="fnReset()">
+		<option value="" label="To">To</option>
+	</select>
+	<input class="h-margin-sm h-padding-sm v-padding-xxxs btn btn-primary font-sm" ng-disabled="!selectedArrival || !selectedDeparture" type="button" value="Cheap" ng-click="fnGetCheapDeals()">
+	<input class="h-margin-sm h-padding-sm v-padding-xxxs btn btn-primary font-sm" ng-disabled="!selectedArrival || !selectedDeparture" type="button" value="Fast" ng-click="fnGetFastDeals()">
+	<br/><br/>
+	<ul class="list-group" ng-if="aCheapDeals">
+		<li class="list-group-item" ng-repeat="deal in aCheapDeals">{{deal.departure + " - " + deal.arrival }} <strong>{{deal.cost | currency}}</strong><br/>
+			<i>{{deal.transport}} {{deal.reference}} {{deal.duration.h}}h{{deal.duration.m}}m</i>
+		</li>
+	</ul>
+	<ul class="list-group" ng-if="aFastDeals">
+		<li class="list-group-item" ng-repeat="deal in aFastDeals">{{deal.departure + " - " + deal.arrival }} {{deal.cost | currency}}<br/>
+			<i>{{deal.transport}} {{deal.reference}} for <strong>{{deal.duration.h}}h{{deal.duration.m}}m</strong></i>
+		</li>
+	</ul>
+</div>
